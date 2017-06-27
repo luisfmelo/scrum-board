@@ -37,9 +37,26 @@ If you use python2, you should use virtualenv package
 - Run the server (inside ./djangular/djangular/)
         
         python manage.py runserver
-        
-        
-        
-    
-        
-        
+
+- Start a new app (we need to add it to ./djangular/djangular/djangular/settings.py - INSTALLED APPS)
+
+        python manage.py startapp scrumboard
+
+- Migrations
+
+        python manage.py makemigrations
+				python manage.py migrate 
+
+- Admin Panel - if I want to manage tables in admin panel, i need to add them in admin.py
+
+        python manage.py createsuperuser 
+
+- Django Rest Framework
+	1. Install via pip 
+				pip install djangorestframework
+	2. In settings.py, add 'rest_framework' to INSTALLED APPS
+	3. Add Serializers (to encode JSON): Create a file/folder: serializers
+	4. REST Api Views: Create file api.py with the Controllers (Views in Django) that push info from db and serialize it
+  5. URLS
+	  5.1. create scrumboard/urls.py with the urlpatterns (regex expression) and the View (controller) it will call (.asView())
+    5.2. add in djangular/urls.py a sub endoint that includes the previous created file
